@@ -72,6 +72,10 @@ button:active {
 
 /************  MENU  ************/
 nav {
+  position: sticky;
+  top: 0;
+  left: 0;
+  /* width: 100%; */
   display: flex;
   margin: 0;
   padding: 0;
@@ -80,14 +84,13 @@ nav {
   align-items: center;
   background-image: linear-gradient(
     180deg,
-    rgba(0, 102, 255, 0.25) 20%,
+    rgba(0, 102, 255, 0.5) 20%,
     transparent
   ) !important;
 }
 
 .lista {
-  margin-left: 4.3rem;
-  padding: 1.5rem 2vw;
+  padding: 1.5rem;
   font-size: 2rem;
 }
 
@@ -112,21 +115,19 @@ nav {
 
 .menu li a {
   list-style: none;
-  margin: 0 1.8rem;
+  margin: 0 1.25rem;
   padding: 0;
   color: aliceblue;
 }
 /* FIm da navegação */
 
 main {
-  margin-top: 4rem;
-  background-image: url("/curriculo-main/Imagens/826b927a-86bb-46b4-9b96-1f8bc18dd52c.png");
-  width: 100%;
-  font-size: 1.7rem;
+  background-image: url("/Imagens/826b927a-86bb-46b4-9b96-1f8bc18dd52c.png");
+  width: auto;
+  font-size: 1.44rem;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% center;
-
   /* mantem a imagem cobrindo todo o tamanho do elemento sem cortar ou duplicar */
 }
 
@@ -290,7 +291,7 @@ main {
 }
 
 .tam_desc {
-  margin-left: 20rem;
+  /* margin-left: 20rem; */
   width: 80%;
 }
 
