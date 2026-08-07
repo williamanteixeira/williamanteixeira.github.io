@@ -13,18 +13,34 @@ HTML {
   possa ser utilizada em todos os elementos com EM e REM, unidade relativas. */
 
 body {
-  background-color: #050b2d;
+  background-color: #0f172a;
+  /*#1e293b; */
   font-family: Arial, sans-serif;
   text-align: center;
   line-height: 1.5rem;
   color: white;
 }
 
+main {
+  /* background-image: url("/Imagens/826b927a-86bb-46b4-9b96-1f8bc18dd52c.png"); */
+  background-image: linear-gradient(180deg, #0f172a 20%);
+  width: auto;
+  font-size: 1.44rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% center;
+  padding: 8rem 0;
+  /* mantem a imagem cobrindo todo o tamanho do elemento sem cortar ou duplicar */
+}
+
 h1 {
-  margin-top: 0.6rem;
+  font-size: 4.8rem;
+  padding: 0;
+  margin-top: 1.9rem;
 }
 
 h2 {
+  font-size: 3.2rem;
   padding: 0;
   margin: 0;
   margin-top: 1.5rem;
@@ -55,6 +71,7 @@ button {
   border-radius: 0.4rem;
   padding: 0.5rem 2rem;
   cursor: pointer;
+  height: 3.5rem;
 }
 
 button:hover,
@@ -84,9 +101,11 @@ nav {
   align-items: center;
   background-image: linear-gradient(
     180deg,
-    rgba(0, 102, 255, 0.5) 20%,
+    #1e293b,
+    50%,
     transparent
   ) !important;
+  box-shadow: #b8b8b8 1rem 0rem 2rem 0rem;
 }
 
 .lista {
@@ -121,22 +140,17 @@ nav {
 }
 /* FIm da navegação */
 
-main {
-  background-image: url("/Imagens/826b927a-86bb-46b4-9b96-1f8bc18dd52c.png");
-  width: auto;
-  font-size: 1.44rem;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 50% center;
-  /* mantem a imagem cobrindo todo o tamanho do elemento sem cortar ou duplicar */
-}
-
 .base_section {
   display: flex;
   justify-content: center;
   text-align: center;
   flex-wrap: wrap;
-  padding: 4.5rem;
+  padding: 2.4rem;
+}
+
+.base_section_reverse {
+  flex-direction: row-reverse;
+  gap: 20rem;
 }
 
 .sub_base_section {
@@ -163,28 +177,45 @@ main {
   o  background-image para preencher o fundo do texto*/
 }
 
-.desc_apresentacao {
+.hello {
   margin-left: 1.72rem;
 }
 
-.my_apre {
+.m_apre {
   text-align: left;
   padding: 0;
   margin-top: 1.2rem;
 }
 
-.teste1 {
+.container_hello {
   margin-bottom: 1.2rem;
 }
 
-.teste1 p {
+.container_hello p {
   margin-bottom: 1.2rem;
+}
+
+.descricao {
+  min-width: 30rem;
+  max-width: 55rem;
 }
 
 .descricao p {
   text-align: left;
-  margin-top: 1.5rem;
+  margin-top: 0.8rem;
   padding: 0;
+  margin-left: 0;
+  word-wrap: break-word;
+}
+
+.bt_projetos {
+  display: flex;
+  justify-content: left;
+  min-width: 30rem;
+  /* max-width: 40rem; */
+  margin-top: 1.25rem;
+  padding: 0;
+  gap: 1.25rem;
 }
 
 .header_container {
@@ -213,8 +244,8 @@ main {
 
 .perfil img {
   display: block;
-  width: 18rem;
-  height: 18rem;
+  width: 24rem;
+  height: 24rem;
   border-radius: 50%;
   object-fit: cover;
   object-position: center top;
@@ -242,7 +273,7 @@ main {
 }
 
 .container_base {
-  background: linear-gradient(135deg, #050b2d);
+  background: linear-gradient(135deg, #1e293b);
   margin-top: 2rem;
   background-size: cover;
   border-radius: 1rem;
@@ -281,17 +312,21 @@ main {
   width: clamp(28rem, 40vw, 40rem);
 }
 
+.section_s_mim {
+  padding: 0;
+  width: 100%;
+}
+
 .atributos {
   display: flex;
   justify-content: right;
   gap: 5.5rem;
-  margin-right: 3.5rem;
+  margin-right: 0.5rem;
   padding: 0.5rem;
   text-align: center;
 }
 
 .tam_desc {
-  /* margin-left: 20rem; */
   width: 80%;
 }
 
@@ -300,12 +335,17 @@ main {
 }
 
 .sub_atributos p {
-  text-align: center;
+  text-align: left;
+  padding: 0;
+  margin-top: 1.55rem;
+  /* position: absolute;
+  bottom: 6rem; */
   /* border: solid #00ff00; */
 }
 
 .sub_atributos img {
-  width: 8rem;
+  width: 4rem;
+  margin-bottom: 1.25rem;
 }
 
 .sbm_img {
@@ -313,23 +353,23 @@ main {
   padding: 0;
   display: flex;
   justify-content: left;
-  gap: 1rem;
 }
 
 .sbm_img img {
-  width: 4.3rem;
-  height: 4.3rem;
-  margin: 0;
+  width: 3.3rem;
+  height: 3.3rem;
+  margin: 0rem;
   padding: 0;
 }
 
 .sub_atributos {
-  padding: 1.2rem;
-  text-align: center;
+  padding: 1.25rem;
+  text-align: left;
   height: auto;
   width: 15.8rem;
   border-radius: 1.5rem;
   box-shadow: 0 0 0.5rem #c9cde2;
+  position: relative;
 }
 
 .div_relative {
@@ -346,7 +386,6 @@ main {
   position: relative;
   display: flex;
   flex-direction: row;
-  /*align-items: center;*/
   align-items: flex-start;
   justify-content: center;
   gap: 2.5rem;
