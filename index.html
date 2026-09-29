@@ -10,7 +10,6 @@
 </head>
 
 <body>
-    
     <header class=" header grade_nav">
           <div class="container-header">             
                   <div class=" logo ">
@@ -20,9 +19,9 @@
               <nav>
                   <div class="lista">
                       <ul class="menu">
-                          <li class="item-menu"><a href="index.html" class="item-link">Inicio</a></li>
-                          <li class="item-menu"><a href="contato.html" class="item-link">Sobre mim</a></li>
-                          <li class="item-menu"><a href="contato.html" class="item-link">carreira</a></li>
+                          <li class="item-menu item-menu-inicio"><a href="index.html" class="item-link">Inicio</a></li>
+                          <li class="item-menu item-menu-sobre"><a href="#sobre" class="item-link">Sobre mim</a></li>
+                          <li class="item-menu item-menu-carreira"><a href="#jornada" class="item-link">carreira</a></li>
                           <!-- <li><a href="contato.html">skills</a></li> -->
                           <!-- <li><a href="contato.html">Projetos</a></li> -->
                           <!-- <li><a href="contato.html">tecnologias</a></li> -->
@@ -35,16 +34,25 @@
           </div>
     </header>
 
-    <main class="base_section">
+    <main>
+        <div class="configuracoes">
+            <div>
+                <div class="item-config">Tema pagina</div>
+                </div>
+                <div>
+                <div class="item-config">idioma</div>
+                </div>
+        </div>   
+        
         <!-- APRESENTACAO -->
-        <section class=" base_section base_section_reverse">
+        <section class="inicio">
 
-            <div class="header_container">
+            <div class="container-redes-sociais">
                 <div class="perfil">
                     <img src="/Imagens/835252211.jpg" alt="William Teixeira">
                 </div>
 
-                <div class="redes">
+                <div class="itens-redes-sociais">
                     <div class="linkedin portifolio">
                         <a href="https://www.linkedin.com/in/william-teixeira-91826a17a/" target="_blank"><img
                                 src="/Imagens/linkedin.png" alt="linkedin"> </img></a>
@@ -58,10 +66,17 @@
 
             <div class="hello">
                 <div class="m_apre">
-                    <div class="container_hello">
-                    <p>Olá, eu sou</p>
-                    <h1>William A. N. <span class="sobrenome">Teixeira</span> </h1>
+                    <div class="container_hello">    
+                           
+                        <div class="hello_text">
+                            <h1>
+                                <span class="prefixo">Olá, eu sou</span>
+                                <span class="sobrenome">William Araujo do</span>
+                                <span class="sobrenome">Nascimento Teixeira</span>
+                            </h1>
+                        </div>
                     </div>
+
                     <div class="cargos">
                         <ul>
                             <li class="style1">Desenvolvedor Web</li>
@@ -74,21 +89,15 @@
 
                 <div>
                     <div class="descricao">
-                        <p>Bacharel em Ciência da Computação com experiência em Banco de Dados e Desenvolvimento Web.
-                        </p>
-                        <p>Atuação prática com SQL e otimização de queries, além de conhecimentos em HTML, CSS e
-                            JavaScript.</p>
-                        <p>Perfil analítico, com facilidade para resolução de problemas e trabalho em equipe, buscando
-                            constante evolução técnica na área de tecnologia.</p>
-                        <p>Cursando pós em engenharia de software com IA Aplicada.</p>
-                        <!-- <P>Bacharel em <span>Ciência da Computação</span> com experiência em Banco de Dados e Desenvolvimento Web.
-                    Atuação <span>prática</span> com
-                    SQL e otimização de queries, além de conhecimentos em HTML, CSS e JavaScript. Perfil analítico, com
-                    facilidade
-                    para <b>resolução</b> de problemas e trabalho em equipe, buscando constante evolução técnica na área de tecnologia.
-                </P> -->
+                        <p>Bacharel em Ciência da Computação com experiência em Banco de Dados e Desenvolvimento Web.                     
+                        Atuação prática com SQL e otimização de queries, além de conhecimentos em HTML, CSS e JavaScript.                           
+                        Perfil analítico, com facilidade para resolução de problemas e trabalho em equipe, buscando
+                        constante evolução técnica na área de tecnologia.
+                        Cursando pós em engenharia de software com IA Aplicada.</p>
+                     
                         <div class="bt_projetos">
                             <button>Ver projetos</button>
+                            
                             <button>
                                 <div class="btn_cv">                     
                                         <div class="txt_btn">
@@ -100,6 +109,7 @@
                                         </div>
                                  </div>   
                             </button>
+                            
                         </div>
                     </div>
                 </div>
@@ -107,8 +117,12 @@
         </section>
         <!-- fim apresentacao -->
 
+
+
+
+
         <!-- SOBRE MIM -->
-        <section class="base_section section_s_mim">
+        <section class="base_section section_s_mim" id="sobre">
             <div class=" container_base base_section sombra tam_desc space_main">
                 <!-- o buttom dessa dessa div vai levar a seção 'MINHA JORNADA' -->
 
@@ -151,8 +165,12 @@
             </div>
         </section>
 
+
+
+
+
         <!-- MINHA JORNADA -->
-        <section class=" container_base sombra tam_desc div_relative ">
+        <section class=" container_base sombra tam_desc div_relative " id="jornada">
             <div class="container_base">
                 <div class="move_div sbm_img">
                     <img src="/Imagens/usuario.png">
@@ -247,8 +265,11 @@
             </div>
         </section>
 
+
+
+        
         <!-- skills -->
-        <section class=" container_base sombra tam_desc skills">
+        <section class=" container_base sombra tam_desc" id="skills">
             <div>
                 <div class="hard_skills">
                     <h2>Hard Skills</h2>

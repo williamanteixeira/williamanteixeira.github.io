@@ -29,7 +29,7 @@ main {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% center;
-  padding: 8rem 0;
+  padding: 0;
   /* mantem a imagem cobrindo todo o tamanho do elemento sem cortar ou duplicar */
 }
 
@@ -37,6 +37,11 @@ h1 {
   font-size: 4.8rem;
   padding: 0;
   margin-top: 1.9rem;
+  display: block;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
 }
 
 h2 {
@@ -132,24 +137,42 @@ nav {
   gap: 1.5rem;
 }
 
-/************  MENU  ************/
-/* .grade_nav {
-  position: sticky;
-  top: 0;
-  left: 0;
-  width: 100%;
+.configuracoes {
   display: flex;
+  justify-content: right;
+  position: relative;
+  right: 15rem;
+  gap: 5rem;
+  height: 4rem;
+  padding: 0.5rem 0.8rem 0.8rem 0.8rem;
+  border-radius: 0.9rem;
+  /* background-color: #e003d2; */
+}
+
+.item-config {
+  display: inline-block;
   margin: 0;
-  padding: 0.3rem 0.9rem;
-  height: 5rem;
-  flex-direction: row;
-  align-items: center;
-  background-image: linear-gradient(
-    180deg,
-    #0f172a /* ,50% transparent */
-/* ) !important;
-  box-shadow: 0rem 0.03rem 0.02rem 0rem #b8b8b8;
+  font-size: 1.4rem;
+  padding: 0.6rem 0.8rem;
+  background-color: #1e293b;
+  border-radius: 0.9rem;
+  cursor: pointer;
+  border: 0;
+  /* background-color: #dfb7dc; */
+}
+
+.item-config:hover {
+  background: #0072ff;
+  color: white;
+  transition: all 0.3s ease-in-out;
+  transform: translateY(0.1rem) scale(0.95);
+}
+
+/* .configuracoes .item-config:hover {
+  background-color: #8a2be2;
+  color: white;
 } */
+/************  MENU  ************/
 
 .header {
   position: sticky;
@@ -160,7 +183,6 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* height: 8.55rem; tamanho padrão mas não deve permanecer */
 }
 
 .container-header {
@@ -168,6 +190,17 @@ nav {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+}
+
+h1 span {
+  display: block;
+  margin-inline-start: 0.42rem;
+  margin-inline-end: 0.42rem;
+}
+
+.inicio h1 .prefixo {
+  margin-bottom: 0.8rem;
+  font-size: 3rem;
 }
 
 /* classe logo */
@@ -184,8 +217,9 @@ nav {
 }
 
 .lista {
-  padding: 1.5rem;
-  font-size: 2rem;
+  padding: 0; /*1.25rem;*/
+  font-size: 1.95rem;
+  margin: 0;
 }
 
 .menu {
@@ -194,6 +228,7 @@ nav {
   align-items: stretch;
   margin: 0;
   padding: 0;
+  gap: 1.8rem;
 }
 
 .menu .item-menu a {
@@ -206,20 +241,37 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.82rem;
+  margin: 0;
+  gap: 0.52rem;
 }
 
 .item-link {
-  padding: 2.15rem 1.02rem;
+  padding: 3.35rem 1.12rem;
 }
 
-.item-menu a:hover {
-  background-image: linear-gradient(90deg, #8a2be2, #0072ff);
+.item-link:hover {
+  padding: 3rem 1.12rem;
+  box-shadow: 0 0.18rem 0 0 rgba(42, 112, 243, 0.904);
+  color: rgba(42, 112, 243, 0.904) !important;
+  transition: all 0.3s ease-in-out;
+  /* box-shadow: inset 5em 1em gold; */
+  /* #8a2be2; */
 }
 
 /* FIm da navegação */
 
 /*APRESENTACAO*/
+
+.inicio {
+  min-height: calc(90vh - 68px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0.8rem 0.6rem;
+  position: relative;
+}
 
 .header_container {
   padding: 0;
@@ -233,7 +285,7 @@ nav {
   margin-right: 0.5rem;
   background: linear-gradient(135deg, #0072ff, #8a2be2);
   box-shadow:
-    0 0 1em #0072ff,
+    inset 0 0 1em #0072ff,
     0 0 1em #8a2be2;
 }
 
@@ -251,32 +303,39 @@ nav {
   */
 }
 
-.redes {
-  margin-top: 1.44rem;
-  padding: 0;
-  justify-content: center;
+.container-redes-sociais {
   display: flex;
-  gap: 1.5rem;
+  justify-content: left;
+  align-items: center;
+  gap: 2.1rem;
+}
+
+.itens-redes-sociais {
+  padding: 0.81rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 1.2rem;
 }
 
 .linkedin,
 .github {
   text-align: right;
   margin: 0;
-  padding: 0;
+}
+
+.portifolio {
+  width: 4.2rem;
+  height: 4.2rem;
 }
 
 .portifolio img {
-  width: 3.2rem;
-  height: 3.2rem;
-}
-
-.hello {
-  margin-left: 1.72rem;
+  width: 100%;
 }
 
 .m_apre {
-  text-align: left;
+  text-align: center;
   padding: 0;
   margin-top: 1.2rem;
 }
@@ -289,14 +348,20 @@ nav {
   margin-bottom: 1.2rem;
 }
 
+.hello_text {
+  padding: 1.6rem 0 0.2rem 0;
+  /* background-color: #0072ff; */
+}
+
 .sobrenome {
-  background-image: linear-gradient(90deg, #8a2be2, #0072ff);
+  background-image: linear-gradient(90deg, #0072ff, #8a2be2, #0072ff);
 
   background-clip: text;
   -webkit-background-clip: text;
 
   color: transparent;
   -webkit-text-fill-color: transparent;
+  line-height: 5.5rem;
 
   /* As propriedades deixam o texto transparente e com isso é possível colocar 
   o  background-image para preencher o fundo do texto*/
@@ -305,7 +370,7 @@ nav {
 .cargos {
   margin: 0 0 3.5rem 0;
   padding: 0;
-  text-align: left;
+  text-align: center;
 }
 
 .cargos ul {
@@ -316,35 +381,36 @@ nav {
 .cargos ul li {
   padding: 0;
   color: aliceblue;
+  font-size: 2.4rem;
 }
 
 .style1::after {
   content: " |  ";
-  margin-left: 1rem;
-  margin-right: 1rem;
+  padding: 0 0.9rem 0 0.1rem;
+  /* margin-left: 0.27rem;
+  margin-right: 0rem; */
 }
 
 .descricao {
   min-width: 30rem;
-  max-width: 55rem;
+  max-width: 75rem;
 }
 
 .descricao p {
-  text-align: left;
-  margin-top: 0.8rem;
-  padding: 0;
-  margin-left: 0;
-  word-wrap: break-word;
+  text-align: center;
+  padding: 1.8rem;
+  line-height: 1.8rem;
+  font-size: 1.8rem;
+  font-weight: 400;
 }
 
 .bt_projetos {
   display: flex;
-  justify-content: left;
+  justify-content: center;
   min-width: 30rem;
-  /* max-width: 40rem; */
   margin-top: 1.25rem;
   padding: 0;
-  gap: 1.25rem;
+  gap: 2.7rem;
 }
 
 .bt_projetos img {
@@ -362,6 +428,11 @@ nav {
 }
 
 /* FIM DA APRESENTAÇÃO */
+
+#sobre {
+  /* Retirar display none */
+  display: none;
+}
 
 /* SOBRE MIM */
 .section_s_mim {
@@ -440,6 +511,12 @@ nav {
 /* FIM SOBRE MIM */
 
 /* MINHA JORNADA */
+
+#jornada {
+  /* Retirar display none */
+  display: none;
+}
+
 .div_relative {
   position: relative;
 }
@@ -552,4 +629,9 @@ form {
   margin-top: 5rem;
   width: 100%;
   gap: 5rem;
+}
+
+#skills {
+  /* Retirar display none */
+  display: none;
 }
