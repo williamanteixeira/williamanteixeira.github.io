@@ -15,7 +15,8 @@ HTML {
   possa ser utilizada em todos os elementos com EM e REM, unidade relativas. */
 
 body {
-  background-color: #0b1220;
+  /* background-color: #0b1220; */
+  background-color: #030407;
   font-family: Arial, sans-serif;
   text-align: center;
   line-height: 1.5rem;
@@ -39,15 +40,6 @@ main {
   display: flex;
   flex-flow: column;
   /* mantem a imagem cobrindo todo o tamanho do elemento sem cortar ou duplicar */
-}
-
-h1 {
-  font-size: 4.8rem;
-  padding: 0;
-  margin-block-start: 0.67em;
-  margin-block-end: 0.67em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
 }
 
 h2 {
@@ -99,6 +91,15 @@ button:hover {
 
 nav {
   display: inline-block;
+}
+
+footer {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.2rem;
+  /* background-color: #111a2b; */
 }
 
 /* ============================================================
@@ -241,6 +242,37 @@ nav {
 }
 
 /* ============================================================
+   INDEX - CONEXÕES
+   ============================================================ */
+.h2_conexoes {
+  width: 100%;
+}
+
+.conexoes {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.2rem;
+}
+
+.conexao_item img {
+  width: 4.2rem;
+  height: 4.2rem;
+}
+
+.container_conexoes {
+  padding-top: 2.5rem;
+}
+
+.conexoes_itens {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+/* ============================================================
    INDEX - REDES SOCIAIS (.itens-redes-sociais)
    ============================================================ */
 
@@ -287,39 +319,41 @@ nav {
 
 /* ---------- Configurações (tema / idioma) ---------- */
 
-.container-config {
-  display: flex;
-  justify-content: right;
-  /* background-color: #111a2b; */
-}
-
 .configuracoes {
   display: flex;
-  position: relative;
-  flex-direction: row;
-  top: 2.1rem;
-  right: 3.3rem;
-  gap: 5rem;
-  padding: 0.5rem 0.8rem 0.8rem 0.8rem;
-  border-radius: 0.9rem;
-  /* width: 40rem; */
+  flex-flow: row;
+  align-items: center;
+  gap: 4.12rem;
+  padding: 0rem 11.92rem 0rem 0rem;
+  z-index: 999999;
 }
 
 .configuracoes .item-config {
-  margin: 0;
-  position: relative;
-  /* font-size: 1.4rem; */
   padding: 1rem 1.2rem;
-  background-color: #111a2b;
+  background-color: #4d56687e;
   border-radius: 0.9rem;
   cursor: pointer;
-  border: 0;
+  border: 0.12rem solid rgba(42, 112, 243, 0.493);
+}
+
+.it-lang {
+  width: 8.2rem;
+  height: 4.6rem;
+  font-size: 1.28rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .item-config:hover {
-  background: #1a57ad;
+  background: #f1f1f1a4;
   transition: all 0.3s ease-in-out;
-  transform: translateY(0.2rem) scale(0.95);
+  transform: translateY(-0.2rem) scale(0.95);
+}
+
+.it-lang:hover {
+  color: rgb(42, 112, 243);
 }
 
 .item-config img {
@@ -336,7 +370,6 @@ nav {
 
 .inicio {
   display: flex;
-  /* gap: 16rem; */
   justify-content: center;
   align-items: center;
   padding: 0.8rem 7.6rem;
@@ -384,7 +417,7 @@ nav {
   row-gap: 2.7em;
   order: 1;
   flex: 6;
-  padding: 5.2rem 0 0 10.2rem;
+  padding: 1.2rem 0 0 10.2rem;
 }
 
 .heelo_descrip_container {
@@ -408,41 +441,71 @@ nav {
 
 /* ---------- Título h1 (prefixo / nome / sobrenome) ---------- */
 
-h1 span {
-  display: block;
-  margin-inline-start: 0.42rem;
-  margin-inline-end: 0.42rem;
+h1 {
+  display: flex;
+  justify-content: start;
+  flex-flow: column wrap;
+  gap: 2rem;
+  font-size: 4.8rem;
+  margin-block-end: 0.67em;
 }
 
-.inicio h1 .prefixo {
-  margin-bottom: 1.8rem;
-  font-size: 3rem;
-  color: #2563eb;
+.prefixo {
+  padding: 0 0 2.2rem 0;
+  color: #d4ff24;
+  letter-spacing: 0.02em;
 }
 
 .nome {
-  background-image: linear-gradient(90deg, #e6e6e7);
-
+  background-image: linear-gradient(90deg, #ececec);
   background-clip: text;
   -webkit-background-clip: text;
-
   color: transparent;
   -webkit-text-fill-color: transparent;
-  line-height: 3.2rem;
+  width: 60%;
 }
 
 .sobrenome {
-  background-image: linear-gradient(90deg, #2563eb);
-
+  background-image: linear-gradient(90deg, #1558c9);
   background-clip: text;
   -webkit-background-clip: text;
-
   color: transparent;
-  -webkit-text-fill-color: transparent;
-  line-height: 5.5rem;
-
+  /* -webkit-text-fill-color: transparent; */
+  cursor: pointer;
+  /* -webkit-text-stroke: 2px #d3ff24; */
+  width: 63%;
+  position: relative;
+  left: 30%;
   /* As propriedades deixam o texto transparente e com isso é possível colocar 
   o  background-image para preencher o fundo do texto*/
+}
+
+.font-h1 {
+  line-height: 10.5rem;
+  font-size: 14.2rem;
+  letter-spacing: 0.04em;
+}
+
+/* .nome:hover {
+  background-image: linear-gradient(90deg, rgba(253, 253, 253, 0));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 2px #fff;
+  cursor: pointer;
+  transition: all 0.6s ease-in-out;
+} */
+
+.sobrenome:hover {
+  background-image: linear-gradient(90deg, rgba(253, 253, 253, 0));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 2px #d3ff24;
+  cursor: pointer;
+  transition: all 0.6s ease-in-out;
 }
 
 /* ---------- Cargos ---------- */
@@ -453,7 +516,6 @@ h1 span {
   justify-content: space-between;
   align-items: center;
   text-align: center;
-  font-size: 4.4rem;
 }
 
 .cargos ul {
@@ -464,14 +526,13 @@ h1 span {
 .cargos ul li {
   padding: 0;
   color: aliceblue;
-  font-size: 2.4rem;
+  font-size: 2.72rem;
+  letter-spacing: 0.05em;
 }
 
 .style1::after {
   content: " |  ";
   padding: 0 0.9rem 0 0.1rem;
-  /* margin-left: 0.27rem;
-  margin-right: 0rem; */
 }
 
 /* ---------- Descrição ---------- */
@@ -527,21 +588,20 @@ h1 span {
    INDEX - TECNOLOGIAS (section.tecnologias)
    ============================================================ */
 
-.tecnologias {
+/* .tecnologias {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 2.5rem;
-  padding: 0;
-}
+  padding: 1.28rem;
+} */
 
 .atributos_tecnologias {
-  left: 30.2rem;
-  padding: 35.5rem 0rem;
   display: flex;
-  gap: 5.2rem;
-  flex-wrap: wrap;
-  align-items: center;
+  padding: 35.5rem 4.88rem;
+  gap: 3.12rem;
+  align-items: stretch;
+  width: 100%;
 }
 
 .itens_tecnologia img {
@@ -550,19 +610,24 @@ h1 span {
 }
 
 .itens_tecnologia {
+  flex: 1 1 0;
+  min-width: 0;
   display: flex;
   flex-flow: column;
   align-items: center;
   gap: 0.9rem;
-  flex: 1;
+  background-image: linear-gradient(90deg, #4c7ce24b);
+  border-radius: 6.1rem;
+  padding: 1.2rem;
 }
 
 .itens_tecnologia:hover {
   transform: scale(1.1);
   cursor: pointer;
-  color: #2563eb;
-  text-shadow: rgba(250, 250, 250, 0.61) 0.1rem 0.1rem 0.1rem;
-  transition: all 0.3s ease-in-out;
+  /* color: #2563eb; */
+  box-shadow: rgba(255, 255, 255, 0.623) -0.1rem -0.1rem 0.9rem 0.1rem;
+  transform: translateY(-1.9rem);
+  transition: all 0.5s;
 }
 
 .itens_tecnologia h3 {
@@ -571,16 +636,48 @@ h1 span {
   letter-spacing: 0.05em;
 }
 
-.itens_tecnologia p {
-  font-size: 2.1rem;
-  line-height: 2.7rem;
-  letter-spacing: 0.05em;
-}
-
 .descricao_tecnologia {
   display: flex;
-  flex-flow: column wrap;
-  gap: 0.7rem;
+  flex-flow: column;
+  gap: 1.7rem;
+  flex: 1;
+}
+
+.p-descricao {
+  display: flex;
+  flex-flow: column;
+  text-align: start;
+  gap: 2.28rem;
+  align-items: start;
+  flex: 1;
+}
+
+.p-desc {
+  font-size: 1.8rem;
+  line-height: 2.6rem;
+  letter-spacing: 0.03em;
+  padding: 0rem 1.28rem;
+  text-align: justify;
+  min-height: calc(2.6rem * 9);
+}
+
+.p-h4 {
+  padding: 1.8rem 0 0 0;
+  font-size: 2.1rem;
+  line-height: 1.7rem;
+  letter-spacing: 0.05em;
+  font-weight: bold;
+  color: #d3ff24;
+}
+
+.p-desc-fim {
+  font-size: 1.8rem;
+  line-height: 2rem;
+  letter-spacing: 0.05em;
+  padding: 1.28rem 1.28rem;
+  text-align: center;
+  margin-top: auto;
+  /* dica do claude foi mudar para grid*/
 }
 
 /* ============================================================
