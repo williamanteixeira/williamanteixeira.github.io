@@ -392,7 +392,8 @@
   // ============================================================
 
   function ajustarTamanho() {
-    const dpr = window.devicePixelRatio || 1;
+    // Limita a 2x: celulares com tela 3x desenhariam 9x mais pixels sem ganho visível
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
     largura = window.innerWidth;
     altura = window.innerHeight;
 

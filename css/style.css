@@ -628,7 +628,10 @@ h1 {
   -webkit-background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
-  width: 60%;
+  /* fit-content: a caixa tem o tamanho exato do texto. Com width: 60%, o fundo
+     (que "pinta" as letras via background-clip: text) não cobria o nome inteiro
+     em telas menores e as últimas letras sumiam ("Willia"). */
+  width: fit-content;
 }
 
 .sobrenome {
@@ -639,7 +642,7 @@ h1 {
   /* -webkit-text-fill-color: transparent; */
   cursor: pointer;
   /* -webkit-text-stroke: 2px #d3ff24; */
-  width: 63%;
+  width: fit-content; /* mesmo motivo do .nome */
   position: relative;
   left: 30%;
   /* As propriedades deixam o texto transparente e com isso é possível colocar 
@@ -798,11 +801,14 @@ h1 {
   transition: all 0.5s;
 }
 
-.itens_tecnologia:hover {
-  /* cursor: pointer; */
-  box-shadow: rgba(255, 255, 255, 0.623) -0.1rem -0.1rem 0.9rem 0.1rem;
-  transform: translateY(-1.9rem);
-  transition: all 0.4s;
+/* (hover: hover) = só em aparelhos com mouse. No celular, o "hover" fica
+   preso depois do toque e o card ficaria levantado. */
+@media (hover: hover) {
+  .itens_tecnologia:hover {
+    box-shadow: rgba(255, 255, 255, 0.623) -0.1rem -0.1rem 0.9rem 0.1rem;
+    transform: translateY(-1.9rem);
+    transition: all 0.4s;
+  }
 }
 
 /* ---------- Inovação 1: brilho que segue o mouse ----------
@@ -1170,4 +1176,263 @@ form {
 #skills {
   /* Retirar display none */
   display: none;
+}
+
+/* ============================================================
+   RESPONSIVIDADE
+   Estratégia: o desktop continua como está, e estes blocos ajustam
+   o layout conforme a tela diminui (desktop-first com max-width).
+     - até 1200px: notebooks pequenos e tablets na horizontal
+     - até 900px:  tablets (o topo vira uma coluna só)
+     - até 600px:  celulares
+   ============================================================ */
+
+/* Ajustes que valem para todas as telas */
+.cargos ul {
+  flex-wrap: wrap; /* os cargos quebram de linha em vez de espremer as palavras */
+  row-gap: 0.8rem;
+}
+
+.cargos ul li {
+  white-space: nowrap; /* "Desenvolvedor Web" nunca se separa */
+  line-height: 1.3; /* o body usa 1.5rem (15px), menor que a fonte: linhas quebradas se encostavam */
+}
+
+.modal-apresentacao__topo h2 {
+  width: auto; /* anula o width: 35.4rem do h2 global */
+}
+
+/* O nome acompanha a largura da tela (até o tamanho original, 14.2rem).
+   clamp(MÍNIMO, IDEAL, MÁXIMO): o ideal usa vw (1vw = 1% da largura da tela). */
+.font-h1 {
+  font-size: clamp(6rem, calc(9.8vw - 3.3rem), 14.2rem);
+  line-height: 0.75em;
+}
+
+/* ---------- até 1200px ---------- */
+@media (max-width: 1200px) {
+  .inicio {
+    padding: 0.8rem 3.2rem;
+  }
+
+  .hello {
+    padding-left: 3.2rem;
+  }
+
+  .perfil img {
+    width: 100%;
+    max-width: 47.8rem;
+    height: auto;
+    aspect-ratio: 478 / 408; /* mantém a proporção original da foto */
+  }
+
+  /* Cards em grade 2 x 2 */
+  .atributos_tecnologias {
+    flex-wrap: wrap;
+    padding: 12rem 3.2rem;
+  }
+
+  .itens_tecnologia {
+    flex: 1 1 calc(50% - 3.12rem);
+  }
+
+  .p-desc {
+    min-height: 0;
+  }
+}
+
+/* ---------- até 900px: topo em uma coluna ---------- */
+@media (max-width: 900px) {
+  .inicio {
+    flex-direction: column;
+    gap: 3.2rem;
+    padding: 1.6rem 2.4rem 4rem;
+  }
+
+  /* No celular a foto vem primeiro: rosto + card de código + nome
+     ficam juntos na primeira tela */
+  .container-redes-sociais {
+    order: 1;
+    flex: none;
+    width: 100%;
+  }
+
+  .perfil img {
+    display: block;
+    width: min(100%, 40rem);
+    margin: 0 auto;
+  }
+
+  .hello {
+    order: 2;
+    flex: none;
+    width: 100%;
+    padding: 0;
+    row-gap: 3.2rem;
+  }
+
+  .font-h1 {
+    font-size: clamp(5.6rem, 13vw, 11rem);
+  }
+
+  h1 {
+    gap: 0.8rem;
+  }
+
+  .cargos {
+    padding-bottom: 2.4rem;
+  }
+
+  .cargos ul li {
+    font-size: 2.2rem;
+  }
+
+  .bt_projetos {
+    min-width: 0;
+  }
+
+  .btn_index {
+    width: 100%;
+    max-width: 50rem;
+    height: 4.8rem; /* área de toque confortável (mínimo recomendado: 44px) */
+  }
+
+  .atributos_tecnologias {
+    padding: 8rem 2.4rem 12rem;
+    gap: 2.4rem;
+  }
+
+  .p-desc {
+    text-align: left; /* "justify" em coluna estreita cria buracos entre as palavras */
+  }
+
+  .l-tec {
+    top: -6rem;
+  }
+}
+
+/* ---------- até 600px: celulares ---------- */
+@media (max-width: 600px) {
+  /* Topo: logo + botão Apresentação */
+  .container_header_inicio {
+    align-items: center;
+    padding: 1.2rem 1.6rem;
+  }
+
+  .inf_logo .logo img {
+    height: 6.4rem;
+  }
+
+  .btn-apresentacao {
+    margin-right: 0;
+    padding: 0.8rem 1.4rem;
+    font-size: 1.4rem;
+  }
+
+  .inicio {
+    padding: 0.8rem 1.6rem 3.2rem;
+  }
+
+  /* Nome: o "Teixeira" desloca menos para caber na tela */
+  .font-h1 {
+    font-size: clamp(5rem, 16vw, 7.2rem);
+  }
+
+  .sobrenome {
+    left: 12%;
+  }
+
+  /* Cargos viram "etiquetas" (chips): ficam legíveis em qualquer quebra de linha */
+  .cargos ul {
+    gap: 0.8rem;
+  }
+
+  .cargos ul li {
+    font-size: 1.4rem;
+    padding: 0.6rem 1.2rem;
+    border: 1px solid rgba(96, 165, 250, 0.35);
+    border-radius: 99rem;
+    background: rgba(11, 18, 32, 0.6);
+  }
+
+  .style1::after {
+    content: none; /* tira o separador " | " */
+  }
+
+  .descricao {
+    font-size: 1.6rem;
+    line-height: 2.5rem;
+  }
+
+  .btn_index {
+    font-size: 1.8rem;
+  }
+
+  /* Card de código: letra menor para a linha mais longa caber na tela */
+  .card-codigo {
+    max-width: 100%;
+  }
+
+  .card-codigo pre {
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+    padding: 1rem 1.2rem 1.2rem;
+  }
+
+  /* Cards de tecnologia: um por linha */
+  .atributos_tecnologias {
+    padding: 4rem 1.6rem 8rem;
+    gap: 2rem;
+  }
+
+  .itens_tecnologia {
+    flex-basis: 100%;
+    padding: 2.4rem 2rem;
+  }
+
+  .itens_tecnologia h3 {
+    font-size: 2.2rem;
+  }
+
+  .p-desc {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    padding: 1.2rem 0 0;
+    text-align: left; /* "justify" em coluna estreita cria buracos entre as palavras */
+  }
+
+  /* Carrossel */
+  .l-tec {
+    top: -4rem;
+  }
+
+  .Lista-tec {
+    gap: 4.8rem;
+  }
+
+  .i-list-word {
+    font-size: 1.8rem;
+  }
+
+  /* Conexões */
+  .h2_conexoes {
+    font-size: 2.4rem;
+    line-height: 3rem;
+    padding: 0 1.6rem;
+  }
+
+  /* Janela do vídeo */
+  .modal-apresentacao__topo {
+    padding: 1.2rem 1.6rem;
+  }
+
+  .modal-apresentacao__topo h2 {
+    font-size: 1.5rem;
+  }
+
+  .modal-apresentacao__texto {
+    font-size: 1.4rem;
+    line-height: 2.1rem;
+    padding: 1.4rem 1.6rem 1.8rem;
+  }
 }
