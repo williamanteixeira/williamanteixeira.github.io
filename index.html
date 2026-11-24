@@ -35,6 +35,27 @@
 
 
 
+        <!-- Botão da apresentação automatizada (Python + Selenium) -->
+        <button type="button" class="btn-apresentacao" id="btn-apresentacao" aria-haspopup="dialog">
+            <span class="btn-apresentacao__icone" aria-hidden="true">▶</span>
+            Apresentação
+        </button>
+
+        <dialog class="modal-apresentacao" id="modal-apresentacao" aria-labelledby="titulo-apresentacao">
+            <div class="modal-apresentacao__topo">
+                <h2 id="titulo-apresentacao">Um robô em Python apresenta este site</h2>
+                <button type="button" class="modal-apresentacao__fechar" aria-label="Fechar">✕</button>
+            </div>
+            <video class="modal-apresentacao__video" src="video/apresentacao.mp4" controls muted playsinline
+                preload="none"></video>
+            <p class="modal-apresentacao__texto">
+                Este vídeo foi gravado enquanto um script em <strong>Python + Selenium</strong> navegava pelo
+                portfólio como uma pessoa: rolando a página, passando o mouse nos cards e pausando o carrossel.
+                <a href="https://github.com/will623/curriculo/blob/main/automacao/apresentacao.py"
+                    target="_blank" rel="noopener">Ver o código no GitHub →</a>
+            </p>
+        </dialog>
+
         <div class="configuracoes">
             <div class="item-config">
                 <img src="/Imagens/ensolarado.png" alt="">
@@ -59,6 +80,21 @@
             <div class="container-redes-sociais">
                 <div class="perfil">
                     <img src="/Imagens/williamsf2.png" alt="William Teixeira">
+
+                    <!-- Card de código sobre a foto -->
+                    <figure class="card-codigo" aria-label="Resumo do perfil em JavaScript">
+                        <div class="card-codigo__barra" aria-hidden="true">
+                            <span></span><span></span><span></span>
+                            <small>william.js</small>
+                        </div>
+                        <pre><code><span class="c-kw">const</span> <span class="c-var">william</span> = {
+  cargo: <span class="c-str">"Dev Web &amp; Analista de Sistemas"</span>,
+  base: <span class="c-str">"SQL · PL/SQL"</span>,
+  stack: [<span class="c-str">"JavaScript"</span>, <span class="c-str">"Java"</span>, <span class="c-str">"Python"</span>],
+  estudando: <span class="c-str">"IA Aplicada"</span>,
+  abertoANovosDesafios: <span class="c-bool">true</span>,
+};</code></pre>
+                    </figure>
                 </div>
             </div>
 
@@ -91,18 +127,19 @@
 
 
                     <div class="descricao">
-                        <p>Bacharel em Ciência da Computação com experiência em Banco de Dados e Desenvolvimento Web.
-                            Atuação prática com SQL e otimização de queries, além de conhecimentos em HTML, CSS e
-                            JavaScript.
-                            Perfil analítico, com facilidade para resolução de problemas e trabalho em equipe, buscando
-                            constante evolução técnica na área de tecnologia.
-                            Cursando pós em engenharia de software com IA Aplicada. </p>
+                        <p>Bacharel em Ciência da Computação e pós-graduando em Engenharia de Software com IA
+                            Aplicada. Minha base é banco de dados: trabalho com SQL no dia a dia, escrevendo e
+                            otimizando consultas que sustentam processos de negócio. No desenvolvimento web, construo
+                            interfaces e APIs com HTML, CSS e JavaScript, e venho ampliando minha atuação para
+                            automação e inteligência artificial. Gosto de entender o problema antes de escrever
+                            código, de trabalhar em equipe e de entregar soluções que funcionam bem e são fáceis de
+                            manter.</p>
 
                     </div>
                 </div>
 
                 <div class="bt_projetos">
-                    <button class="btn_index">
+                    <button class="btn_index btn_projetos" id="bt-projetos">
                         <a href="pages/sobre.html">
                             Ver projetos
                         </a>
@@ -116,7 +153,8 @@
                             </div>
 
                             <div class="txt_btn">
-                                <a href="#" download="Curriculo_William_Teixeira.pdf">Baixar CV</a>
+                                <a href="/docs/Curriculo_William_Teixeira.pdf"
+                                    download="Curriculo_William_Teixeira.pdf">Baixar CV</a>
                             </div>
 
 
@@ -139,89 +177,85 @@
             <div class="atributos_tecnologias">
 
                 <div class="itens_tecnologia">
-                    <img src="/Imagens/sistemas-de-ti.png" />
+                    <img class="img_tecnologia" src="/Imagens/database-check.svg" />
                     <div class="descricao_tecnologia">
                         <h3>Banco de Dados</h3>
                         <div class="p-descricao">
-                            <p class="p-desc">Domínio avançado de SQL e PL/SQL em Oracle, SQL Server e PostgreSQL.
-                                Desenvolvo
-                                procedures, functions e packages e faço tuning de consultas críticas para deixar os
-                                processos mais rápidos e confiáveis.
+                            <p class="p-desc">Desenvolvo em SQL e PL/SQL nos bancos Oracle, SQL Server e PostgreSQL:
+                                procedures, functions e packages que automatizam regras de negócio. Analiso planos de
+                                execução e ajusto consultas críticas para que os processos rodem mais rápido e com
+                                dados confiáveis.
                             </p>
 
 
-                            <p class="p-desc-fim">
+                            <!-- <p class="p-desc-fim">
                                 <span class="p-h4">Como Resultado:</span>
                                 Otimizei rotinas que levavam [X minutos] e passaram a rodar em [Y segundos].
-                            </p>
+                            </p> -->
                         </div>
                     </div>
                 </div>
 
                 <div class="itens_tecnologia">
-                    <img src="/Imagens/foco.png" />
+                    <img src="/Imagens/code-xml.svg" />
                     <div class="descricao_tecnologia">
                         <h3>Desenvolvimento Web</h3>
                         <div class="p-descricao">
-                            <p class="p-desc">
-                                Crio APIs REST e aplicações web com Java, PHP e Node.js, com interfaces em React,
-                                HTML, CSS e JavaScript. Uso Git e CI/CD para versionar e automatizar entregas. Hoje
-                                estou aprofundando em Spring Boot e Docker.
+                            <p class="p-desc">Desenvolvo aplicações web e APIs REST com Java, PHP e Node.js, e
+                                interfaces com React, HTML, CSS e JavaScript. Versiono com Git e uso pipelines de
+                                CI/CD para entregas mais seguras. No momento, aprofundo meus estudos em Spring Boot e
+                                Docker.
                             </p>
 
-
-
-                            <p class="p-desc-fim">
-                                <span class="p-h4">Como Resultado:</span> Desenvolvi [sistema de controle de
-                                X] com API REST em
-                                [Java/Node.js], integrando
-                                [front-end em React / outro sistema].
-                            </p>
+                            <!-- <div class="p-h4">
+                                Como Resultado:
+                                <p class="p-desc-fim">
+                                    Desenvolvi [sistema de controle de
+                                    X] com API REST em
+                                    [Java/Node.js], integrando
+                                    [front-end em React / outro sistema].
+                                </p>
+                            </div> -->
                         </div>
                     </div>
                 </div>
 
 
                 <div class="itens_tecnologia">
-                    <img src="/Imagens/comunidade.png" />
+                    <img src="/Imagens/logssystem.svg" />
                     <div class="descricao_tecnologia">
-                        <h3>Analise de Sistemas</h3>
+                        <h3>Análise de Sistemas</h3>
                         <div class="p-descricao">
-                            <p class="p-desc">Transformo regras de negócio complexas em requisitos claros e
-                                soluções
-                                viáveis. Mapeio
-                                processos, identifico gargalos e faço a ponte entre as necessidades da área e o time
-                                técnico.
+                            <p class="p-desc">Traduzo regras de negócio em requisitos claros e soluções viáveis.
+                                Mapeio processos, identifico gargalos e faço a ponte entre as áreas de negócio e o
+                                time técnico, para que o que é construído resolva o problema certo.
                             </p>
 
 
-                            <p class="p-desc-fim">
+                            <!-- <p class="p-desc-fim">
                                 <span class="p-h4">Como Resultado:</span>
                                 Mapeei e redesenhei o fluxo de [processo], eliminando [X etapas manuais / retrabalho].
-                            </p>
+                            </p> -->
                         </div>
                     </div>
                 </div>
 
                 <div class="itens_tecnologia">
-                    <img src="/Imagens/comunidade.png" />
+                    <img src="/Imagens/iabot.svg" />
                     <div class="descricao_tecnologia">
                         <h3>IA e Automação</h3>
                         <div class="p-descricao">
-                            <p class="p-desc">Uso Python em automações, tratamento de dados e inteligência
-                                artificial,
-                                com LLMs, RAG e
-                                modelos em TensorFlow, conhecimento que aprofundo na pós em Engenharia de Software
-                                com
-                                IA Aplicada.
+                            <p class="p-desc">Uso Python para automatizar tarefas repetitivas e tratar dados. Em IA,
+                                desenvolvo projetos com LLMs, RAG e modelos em TensorFlow, conhecimento que venho
+                                aprofundando na pós em Engenharia de Software com IA Aplicada.
                             </p>
 
 
-
+                            <!-- 
                             <p class="p-desc-fim">
                                 <span class="p-h4">Como Resultado:</span>
                                 Automatizei [processo manual de X], economizando [X horas] por semana.
-                            </p>
+                            </p> -->
 
                         </div>
                     </div>
@@ -229,7 +263,20 @@
             </div>
         </section>
 
-
+        <section id='lista-tec' class="l-tec">
+            <ol class="Lista-tec">
+                <li class="item-lista-tec i-list-word">HTML</li>
+                <li class="item-lista-tec i-list-word">CSS</li>
+                <li class="item-lista-tec i-list-word">JavaScript</li>
+                <li class="item-lista-tec i-list-word">React</li>
+                <li class="item-lista-tec i-list-word">Node.js</li>
+                <li class="item-lista-tec i-list-word">Java</li>
+                <li class="item-lista-tec i-list-word">SQL Server</li>
+                <li class="item-lista-tec i-list-word">PostgreSQL</li>
+                <li class="item-lista-tec i-list-word">Oracle</li>
+                <li class="item-lista-tec i-list-word">Python</li>
+            </ol>
+        </section>
 
         <section class="conexoes">
             <h2 class="h2_conexoes">Grandes projetos começam com boas conexões</h2>
@@ -237,11 +284,11 @@
             <div class="container_conexoes">
                 <div class="conexoes_itens">
                     <div class="conexao_item">
-                        <a href="https://www.linkedin.com/in/william-teixeira-91826a17a/" target="_blank"><img
-                                src="/Imagens/linkedin.png" alt="linkedin"> </img></a>
+                        <a href="mailto:williamnasc.ip@hotmail.com" target="_blank"><img src="/Imagens/e-mailicon.png"
+                                alt="email"> </img></a>
                     </div>
                     <div class="conexao_item">
-                        <a href="https://github.com/WilliamTeixeira" target="_blank"><img src="/Imagens/github.png"
+                        <a href="https://github.com/will623" target="_blank"><img src="/Imagens/logotipogithubgray.png"
                                 alt="github"> </img></a>
                     </div>
                     <!-- /*criar card com e-mail*/ -->
@@ -251,18 +298,23 @@
                     </div>
                 </div>
             </div>
-            </sec>
+        </section>
 
     </main>
 
     <footer>
         <div class="footer_copy">
             <p>© <span id="year">2026</span> William Teixeira. Todos os direitos reservados.</p>
+        </div>
     </footer>
 
     <script src="../Curriculo/JS/script.js"></script>
     <!-- ALTERADO (circuito de fundo): era src="../Curriculo/JS/cirtcuit.js" (arquivo inexistente) -->
     <script src="JS/circuit.js"></script>
+    <!-- Efeitos dos cards de tecnologias: brilho no mouse + entrada no scroll -->
+    <script src="JS/tecnologias.js"></script>
+    <script src="JS/carrossel.js"></script>
+    <script src="JS/apresentacao.js"></script>
 </body>
 
 
